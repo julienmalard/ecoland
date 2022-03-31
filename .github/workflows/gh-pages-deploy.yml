@@ -22,4 +22,14 @@ jobs:
       - name: Déployer
         run: |
           git config user.name "julienmalard" && git config user.email "julien.malard@mail.mcgill.ca"
-          yarn déployer
+          branch = $(git branch --show-current)
+          git checkout --orphan gh-pages
+          yarn build
+          cp dist/index.html dist/404.html
+          touch dist/CNAME
+          git --work-tree dist add --all
+          git --work-tree dist commit -m "gh-pages"
+          git push origin HEAD:gh-pages --force
+          rm -r dist
+          git checkout -f $branch
+          git branch -D gh-pages
