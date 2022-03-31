@@ -1,28 +1,83 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      shrink-on-scroll
+      prominent
+      fade-img-on-scroll
+      dark
+      color="rgba(25,32,72)"
+      :src="require('./assets/photo_2022-03-31_09-43-14.jpg')"
+    >
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(0,0,0,.5), rgba(25,32,72,0)"
+        ></v-img>
+      </template>
+
+
+      <v-app-bar-nav-icon>
+        <template v-slot:default>
+          <img alt="Vue logo" class="my-6" height="20" src="./assets/អេកូលែន.png" @click="$router.push(encodeURI('/អំពិយើង'))">
+        </template>
+      </v-app-bar-nav-icon>
+      <v-toolbar-title>មជ្ឈមណ្ឌលស្រាវជ្រាវសេវាកម្មប្រព័ន្ធបរិស្ថាន និងការប្រើប្រាស់ដី (អេកូលែន)</v-toolbar-title>
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-earth</v-icon>
+      </v-btn>
+
+      <template v-slot:extension>
+        <v-tabs align-with-title>
+          <v-tab @click="$router.push(encodeURI('/អំពិយើង'))">អំពិយើង</v-tab>
+          <v-tab @click="$router.push(encodeURI('/កម្រោងស្រាវជ្រាវ'))">កម្រោងស្រាវជ្រាវ</v-tab>
+          <v-tab @click="$router.push(encodeURI('/ក្រុមស្រាវជ្រាវ'))">ក្រុមស្រាវជ្រាវ</v-tab>
+          <v-tab @click="$router.push(encodeURI('/ទំនាក់ទំនង'))">ទំនាក់ទំនង</v-tab>
+        </v-tabs>
+      </template>
+    </v-app-bar>
+
+    <v-main class="mt-5">
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
+    </v-main>
+
+  </v-app>
+
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
 </style>
