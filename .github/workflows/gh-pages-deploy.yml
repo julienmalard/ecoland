@@ -22,7 +22,7 @@ jobs:
       - name: Déployer
         run: |
           git config user.name "julienmalard" && git config user.email "julien.malard@mail.mcgill.ca"
-          branch = $(git branch --show-current)
+          branch=$(git branch --show-current)
           git checkout --orphan gh-pages
           yarn build
           cp dist/index.html dist/404.html
