@@ -1,6 +1,6 @@
-const execa = require('execa')
-const emoji = require('node-emoji')
-const chalk = require('chalk')
+const execa = import('execa')
+const emoji = import('node-emoji')
+const chalk = import('chalk')
 
 const firstLog = `${emoji.get('fast_forward')} ${chalk.yellow('On compile...')}`
 const secondLog = `${emoji.get('fast_forward')} ${chalk.yellow('On publie...')}`
