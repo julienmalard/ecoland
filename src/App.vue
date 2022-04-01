@@ -6,13 +6,14 @@
       prominent
       fade-img-on-scroll
       dark
+      height="300"
       color="rgba(25,32,72)"
-      :src="require('./assets/photo_2022-03-31_09-43-14.jpg')"
+      :src="រូបថត"
     >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
-          gradient="to top right, rgba(0,0,0,.5), rgba(25,32,72,0)"
+          gradient="to top right, rgba(0,0,0,.2), rgba(25,32,72,0)"
         ></v-img>
       </template>
 
@@ -88,7 +89,23 @@ export default Vue.extend({
   name: 'app',
   data: () => ({
     ផ្ទាំង: ['អំពិយើង', 'កម្រោងស្រាវជ្រាវ', 'ក្រុមស្រាវជ្រាវ', 'អត្ថបទបោះពុម្ភ', 'ទំនាក់ទំនង'],
+    រូបថតៗ: [
+      // eslint-disable-next-line
+      require('./assets/photo_2022-03-31_09-43-14.jpg'),
+      // eslint-disable-next-line
+      require('./assets/IMG_1966 - copie.jpg'),
+    ],
+    រូបថត: '',
   }),
+  mounted() {
+    let អ = 0;
+    this.រូបថត = this.រូបថតៗ[អ];
+    setInterval(() => {
+      អ += 1;
+      if (អ >= this.រូបថតៗ.length) អ = 0;
+      this.រូបថត = this.រូបថតៗ[អ];
+    }, 2500);
+  },
 });
 </script>
 
