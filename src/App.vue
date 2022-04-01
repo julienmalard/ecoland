@@ -33,9 +33,28 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-earth</v-icon>
-      </v-btn>
+      <v-menu
+        top
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-earth</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item
+            v-for="(item, index) in ['ខ្មែរ', 'தமிழ்']"
+            :key="index"
+          >
+            <v-list-item-title>{{ item }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
 
       <template v-slot:extension>
         <v-tabs align-with-title>
