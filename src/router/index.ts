@@ -41,6 +41,14 @@ const routes: Array<RouteConfig> = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "tomneak" */ '../ការមើលឃើញ/ទំនាក់ទំនង.vue'),
   },
+  {
+    path: encodeURI('/អត្ថបទបោះពុម្ភ'),
+    name: 'អត្ថបទបោះពុម្ភ',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "tomneak" */ '../ការមើលឃើញ/អត្ថបទបោះពុម្ភ.vue'),
+  },
 ];
 
 const router = new VueRouter({
