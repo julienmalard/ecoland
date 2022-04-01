@@ -62,15 +62,10 @@
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab @click="$router.push(encodeURI('/អំពិយើង'))">{{ $t('ផ្ទាំង.អំពិយើង') }}</v-tab>
-          <v-tab @click="$router.push(encodeURI('/កម្រោងស្រាវជ្រាវ'))">
-            {{ $t('ផ្ទាំង.កម្រោងស្រាវជ្រាវ') }}
-          </v-tab>
-          <v-tab @click="$router.push(encodeURI('/ក្រុមស្រាវជ្រាវ'))">
-            {{ $t('ផ្ទាំង.ក្រុមស្រាវជ្រាវ') }}
-          </v-tab>
-          <v-tab @click="$router.push(encodeURI('/ទំនាក់ទំនង'))">
-            {{ $t('ផ្ទាំង.ទំនាក់ទំនង') }}
+          <v-tab
+            v-for="ផ in ផ្ទាំង"
+            :key="ផ"
+            @click="$router.push(encodeURI(`/${ផ}`))">{{ $t(`ផ្ទាំង.${ផ}`) }}
           </v-tab>
         </v-tabs>
       </template>
@@ -91,6 +86,9 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'app',
+  data: () => ({
+    ផ្ទាំង: ['អំពិយើង', 'កម្រោងស្រាវជ្រាវ', 'ក្រុមស្រាវជ្រាវ', 'ទំនាក់ទំនង'],
+  }),
 });
 </script>
 
