@@ -35,7 +35,9 @@
           </v-card-title>
         </v-img>
         <v-card-text class="text-start text-body-1">
-          <h2 class="text-h5 mb-2">{{ លេខខ្មែរ(chnaam_chabphtaem) }} - {{ លេខខ្មែរ(chnaam_chap) }}</h2>
+          <h2 class="text-h5 mb-2">
+            {{ លេខខ្មែរ(chnaam_chabphtaem) }} - {{ លេខខ្មែរ(chnaam_chap) }}
+          </h2>
           {{ ambi_kleih || ambi.slice(0, 150) + "..."}}
         </v-card-text>
       </v-card>
@@ -51,7 +53,6 @@
           {{ chmoah }}
         </v-card-title>
       </v-img>
-
 
       <v-card-text class="my-4 text-start">
         {{ ambi }}
@@ -75,21 +76,21 @@
 </template>
 
 <script>
-import { உரைக்கு } from "ennikkai";
+import { உரைக்கு } from 'ennikkai';
 
 export default {
   name: 'AmbiYerng',
-  props: ["chmoah", "ambi", "ambi_kleih", "chnaam_chabphtaem", "chnaam_chap", "ruptot"],
-  data: function () {
+  props: ['chmoah', 'ambi', 'ambi_kleih', 'chnaam_chabphtaem', 'chnaam_chap', 'ruptot'],
+  data() {
     return {
-      dialog: false
-    }
+      dialog: false,
+    };
   },
   methods: {
-    លេខខ្មែរ: function (លេខ) {
-      return உரைக்கு(លេខ, "ខ្មែរ")
-    }
-  }
-}
+    លេខខ្មែរ(លេខ) {
+      return உரைக்கு(លេខ, 'ខ្មែរ');
+    },
+  },
+};
 
 </script>

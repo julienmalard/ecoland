@@ -36,7 +36,7 @@
 <script>
 export default {
   name: 'AmbiYerng',
-  props: ["chmoah", "ambi", "ruptot"]
-}
+  props: ['chmoah', 'ambi', 'ruptot'],
+};
 
 </script>

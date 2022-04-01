@@ -16,13 +16,21 @@
         ></v-img>
       </template>
 
-
       <v-app-bar-nav-icon>
         <template v-slot:default>
-          <img alt="Vue logo" class="my-6" height="20" src="./assets/អេកូលែន.png" @click="$router.push(encodeURI('/អំពិយើង'))">
+          <img
+            alt="Vue logo"
+            class="my-6"
+            height="20"
+            src="./assets/អេកូលែន.png"
+            @click="$router.push(encodeURI('/អំពិយើង'))"
+            v-on:keyup.enter="$router.push(encodeURI('/អំពិយើង'))"
+          />
         </template>
       </v-app-bar-nav-icon>
-      <v-toolbar-title>មជ្ឈមណ្ឌលស្រាវជ្រាវសេវាកម្មប្រព័ន្ធបរិស្ថាន និងការប្រើប្រាស់ដី (អេកូលែន)</v-toolbar-title>
+      <v-toolbar-title>
+        មជ្ឈមណ្ឌលស្រាវជ្រាវសេវាកម្មប្រព័ន្ធបរិស្ថាន និងការប្រើប្រាស់ដី (អេកូលែន)
+      </v-toolbar-title>
       <v-spacer></v-spacer>
 
       <v-btn icon>

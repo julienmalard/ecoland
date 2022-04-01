@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter, { RouteConfig } from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-const routes = [
+const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'ចាប់ផ្តើម',
-    component: () => import(/* webpackChunkName: "about" */ '../ការមើលឃើញ/អំពិយើង.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../ការមើលឃើញ/អំពិយើង.vue'),
   },
   {
     path: encodeURI('/អំពិយើង'),
@@ -15,7 +15,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "ambiyerng" */ '../ការមើលឃើញ/អំពិយើង.vue')
+    component: () => import(/* webpackChunkName: "ambiyerng" */ '../ការមើលឃើញ/អំពិយើង.vue'),
   },
   {
     path: encodeURI('/កម្រោងស្រាវជ្រាវ'),
@@ -23,7 +23,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "kamrong" */ '../ការមើលឃើញ/កម្រោងស្រាវជ្រាវ.vue')
+    component: () => import(/* webpackChunkName: "kamrong" */ '../ការមើលឃើញ/កម្រោងស្រាវជ្រាវ.vue'),
   },
   {
     path: encodeURI('/ក្រុមស្រាវជ្រាវ'),
@@ -31,7 +31,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "krom" */ '../ការមើលឃើញ/ក្រុមស្រាវជ្រាវ.vue')
+    component: () => import(/* webpackChunkName: "krom" */ '../ការមើលឃើញ/ក្រុមស្រាវជ្រាវ.vue'),
   },
   {
     path: encodeURI('/ទំនាក់ទំនង'),
@@ -39,14 +39,14 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "tomneak" */ '../ការមើលឃើញ/ទំនាក់ទំនង.vue')
-  }
-]
+    component: () => import(/* webpackChunkName: "tomneak" */ '../ការមើលឃើញ/ទំនាក់ទំនង.vue'),
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
