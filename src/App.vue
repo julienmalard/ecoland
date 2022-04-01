@@ -29,7 +29,7 @@
         </template>
       </v-app-bar-nav-icon>
       <v-toolbar-title>
-        មជ្ឈមណ្ឌលស្រាវជ្រាវសេវាកម្មប្រព័ន្ធបរិស្ថាន និងការប្រើប្រាស់ដី (អេកូលែន)
+        {{ $t("ឈ្មោះអេកូលែន") }}
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
@@ -48,10 +48,14 @@
 
         <v-list>
           <v-list-item
-            v-for="(item, index) in ['ខ្មែរ', 'தமிழ்']"
-            :key="index"
+            v-for="ភាសា in ['ខ្មែរ', 'தமிழ்']"
+            :key="ភាសា"
+            @click="$i18n.locale = ភាសា"
           >
-            <v-list-item-title>{{ item }}</v-list-item-title>
+            <v-list-item-avatar dense>
+              <v-icon v-show="$i18n.locale === ភាសា">mdi-check</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-title>{{ ភាសា }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -75,6 +79,14 @@
   </v-app>
 
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'app',
+});
+</script>
 
 <style lang="scss">
 #app {

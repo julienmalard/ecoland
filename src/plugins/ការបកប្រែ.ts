@@ -1,3 +1,3 @@
-import * as សារ from './ការបកប្រែ.json';
+import * as សារ from './សារបកប្រែ.json';
 
 export default សារ;
