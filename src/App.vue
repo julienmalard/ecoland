@@ -48,24 +48,30 @@
 
         <v-list>
           <v-list-item
-            v-for="ភាសា in ['ខ្មែរ', 'தமிழ்']"
+            v-for="ភាសា in Object.keys($i18n.messages).filter(ភាសា=> ភាសា !== 'default')"
             :key="ភាសា"
             @click="$i18n.locale = ភាសា"
           >
             <v-list-item-avatar dense>
               <v-icon v-show="$i18n.locale === ភាសា">mdi-check</v-icon>
             </v-list-item-avatar>
-            <v-list-item-title>{{ ភាសា }}</v-list-item-title>
+            <v-list-item-title class="text-start">{{ ភាសា }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab @click="$router.push(encodeURI('/អំពិយើង'))">អំពិយើង</v-tab>
-          <v-tab @click="$router.push(encodeURI('/កម្រោងស្រាវជ្រាវ'))">កម្រោងស្រាវជ្រាវ</v-tab>
-          <v-tab @click="$router.push(encodeURI('/ក្រុមស្រាវជ្រាវ'))">ក្រុមស្រាវជ្រាវ</v-tab>
-          <v-tab @click="$router.push(encodeURI('/ទំនាក់ទំនង'))">ទំនាក់ទំនង</v-tab>
+          <v-tab @click="$router.push(encodeURI('/អំពិយើង'))">{{ $t('ផ្ទាំង.អំពិយើង') }}</v-tab>
+          <v-tab @click="$router.push(encodeURI('/កម្រោងស្រាវជ្រាវ'))">
+            {{ $t('ផ្ទាំង.កម្រោងស្រាវជ្រាវ') }}
+          </v-tab>
+          <v-tab @click="$router.push(encodeURI('/ក្រុមស្រាវជ្រាវ'))">
+            {{ $t('ផ្ទាំង.ក្រុមស្រាវជ្រាវ') }}
+          </v-tab>
+          <v-tab @click="$router.push(encodeURI('/ទំនាក់ទំនង'))">
+            {{ $t('ផ្ទាំង.ទំនាក់ទំនង') }}
+          </v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
